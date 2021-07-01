@@ -1,4 +1,8 @@
 # webRTC
+broadcast로 영상을 전송하기 위한 연습용 코드다. 한명의 teacher와 여러명의 student가 존재할 예정이다.
+teacher는 영상을 전송만하고 받지 않는다. student는 영상을 받기만하고 보내지 않는다.
 
-연습삼아 작성해본 코드로 사용자가 접속하면 자신의 비디오가 가장 먼저뜨고 이전에 들어와있는 사용자의 비디오가 차례로 뜬다.
-하지만 나 다음으로 들어오는 참가자의 비디오는 뜨지 않고 사용자가 종료했을 경우에 대한 코드를 작성하지 않은 상태이다.
+접속할때 teacher로 접속을 하면 getUserMediaStream에서 video와 audio가 true로되어 자신의 비디오를 만들고 createSenderPeerConnection와 createSenderOffer를 하여 getSenderAnswer를 받으며 자신의 비디오를 전송한다. 
+student로 접속한경우 getUserMediaStream에서 video와 audio가 false라서 createSenderPeerConnection와 createSenderOffer를 하지않고 allUsers소켓 이벤트를 받아 영상을 보내는 사람(teacher)에 대한 createReceiverPeerConnection와 getReceiverAnswer와 getReceiverCandidate하고 createReceiverPeerConnection으로 만들어 놓은 teacher비디오에 영상을 띄운다.
+
+여기까지만 구현이 되어있고 사용자가 종료했을 경우에 대한 코드는 아직 작성하지 않았다.
