@@ -14,3 +14,4 @@ teacher는 영상을 전송만하고 받지 않는다. student는 영상을 받�
 student로 접속한경우 getUserMediaStream에서 video와 audio가 false라서 createSenderPeerConnection와 createSenderOffer를 하지않고 allUsers소켓 이벤트를 받아 영상을 보내는 사람(teacher)에 대한 createReceiverPeerConnection와 getReceiverAnswer와 getReceiverCandidate하고 createReceiverPeerConnection으로 만들어 놓은 teacher비디오에 영상을 띄웁니다.
 
 broadcast를 연습하기위한 코드라 여기까지만 구현이 되어있고 사용자가 종료했을 경우에 대한 코드는 아직 작성하지 않았다.
+(mediaServer2.js를 사용한다.)
