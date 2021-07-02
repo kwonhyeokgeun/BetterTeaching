@@ -50,7 +50,7 @@ function getChat(data) {
     const chat_inner = document.getElementById('chat_inners');
     /*이전 대화목록 받아오기*/
     for(var i=0; i<data.length; i++){
-        chat_inner.innerHTML += `<li><h1>${data[i].userName}</h1><p>${data[i].message}</p></li>`
+        chat_inner.innerHTML += `<li><h1>${data[i].userName}</h1><p>${data[i].msg}</p></li>`
     }
 
     var chat_scroll = document.getElementById('mCSB_1_container');  //스크롤 밑으로 내리기
