@@ -425,6 +425,17 @@ io.on('connection', function(socket) {
             socket.emit('get_room_time',{time:roomToTime[data.roomId]});
         //console.log("roomToTime:",roomToTime[data.roomId]);
     });
+    
+    socket.on('req_chat',function(data){
+        //새로 접속한 사용자에게 채팅정보 전송
+        /*
+        connection.query("SELECT * FROM chat_db where roomId = '"+data.roomId+"' and roomTime ="+roomToTime[data.roomId], function (err, result, fields) {
+            if (err) throw err;
+            //console.log(result);
+            console.log('request_chat');
+            socket.emit('get_chat',result)
+        });*/	
+    });
 
     socket.on('message', (data) => {
         console.log("chat_"+data.userName,":",data.message)
@@ -436,8 +447,7 @@ io.on('connection', function(socket) {
         connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log("1 record inserted");
-        });
-        */
+        });*/
     });
 
     socket.on("show",function (data){
