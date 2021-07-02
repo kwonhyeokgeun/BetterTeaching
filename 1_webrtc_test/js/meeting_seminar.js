@@ -35,8 +35,8 @@ console.log("con!!!!");
 window.addEventListener('load', () => {
     userName = prompt('이름을 입력해주세요.', '');   
     roomId = prompt('방번호를 입력해주세요.', ''); 
-    role = prompt('teacher or student', '');
-    if (role =='')  role = 'student';
+    role = 'teacher';
+    
 
     getUserMediaStream();
 });
