@@ -238,6 +238,7 @@ socket.on("update", (data) => {
 
 socket.on("get_room_time", (data) => {
     roomTime=data.time
+    socket.emit("req_chat",{roomId:roomId})
 });
 
 socket.on('get_chat', function(data) {
