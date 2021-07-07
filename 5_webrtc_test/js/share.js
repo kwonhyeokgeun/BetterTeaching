@@ -1,3 +1,5 @@
+//let ontrackSwitch = false;
+
 /*window.addEventListener("beforeunload", function(e){
         browserDisconnect()
         socket.emit("out")
@@ -6,13 +8,12 @@
 });   //방장이 나갈시 sendPcs가 삭제되지않는 문제있음
 */
 
-function shareRequest(MorS) {
-    
-    socket.emit('share_question',{MorS:MorS});
+function shareRequest() {
+    socket.emit('share_question');
     
 }
 
-function shareStart(MorS) {
+function shareStart() {
     navigator.mediaDevices.getDisplayMedia({
         audio:true,
         video:true
@@ -21,15 +22,15 @@ function shareStart(MorS) {
         var is_audio_true = stream.getAudioTracks().length
         //shareSwitch = true;
         shareSocketId = socket.id;
-        setPresenterShareView(MorS);
+        setPresenterShareView();
 
 		$('.header .r_hcont .second .h_btn.p_people').removeClass('on').addClass('off');
 		$('.header .r_hcont .second .h_btn.share').removeClass('off').addClass('on');
 
         document.getElementsByClassName('nicknm')[0].innerHTML = userName;
-        if(MorS == 'meeting')
+        if(roomType == 'meeting')
             document.getElementsByClassName('inner')[0].style = 'display: none;';
-        if(MorS == 'seminar'){
+        if(roomType == 'seminar'){
             document.getElementsByClassName('view_all')[0].style = 'display: none;';
         }
         sendPC['share'] = createSenderPeerConnection(stream, 'share',is_audio_true);
@@ -48,6 +49,11 @@ function shareStart(MorS) {
 }
 
 function shareOntrackHandler(stream, userName, senderSocketId) {
+    //if(ontrackSwitch) {
+    //    ontrackSwitch = false;
+    //    return;
+    //}
+    //ontrackSwitch = true;
     if(roomType == 'meeting'){//미팅인 경우
         meeting_setAudienceShareView();
         document.getElementsByClassName('inner')[0].style = "display: none;";
@@ -62,7 +68,9 @@ function shareOntrackHandler(stream, userName, senderSocketId) {
         document.getElementById('self_video').srcObject = userStreams['seminar'][senderSocketId];
         document.getElementsByClassName('nicknm')[0].innerHTML = userName;
     }
+    //shareSwitch = true;
 	
+
 	$('.header .r_hcont .second .h_btn.p_people').removeClass('on').addClass('off');
 	$('.header .r_hcont .second .h_btn.share').removeClass('off').addClass('on');
 }
@@ -94,6 +102,7 @@ function shareDisconnect() {   //공유자의 화면설정
 	$('.header .r_hcont .second .h_btn.share').removeClass('on').addClass('off');
 
     socket.emit('share_disconnect');
+    //shareSwitch = false;
 }
 
 function responseShareDisconnect() {  //공유 받는자의 화면설정
@@ -111,9 +120,10 @@ function responseShareDisconnect() {  //공유 받는자의 화면설정
     $('.header .r_hcont .second .h_btn.p_people').removeClass('off').addClass('on');
 	$('.header .r_hcont .second .h_btn.share').removeClass('on').addClass('off');
 
+    //shareSwitch = false;
 }
 
-function setPresenterShareView(MorS) {
+function setPresenterShareView() {
     var chat1_1_cc = document.createElement('div');
     var p1 = document.createElement('p');
     var p2 = document.createElement('p');
@@ -135,9 +145,9 @@ function setPresenterShareView(MorS) {
     chat1_1_cc.appendChild(a);
 
     var container = document.getElementsByClassName('cont')[0];
-    if(MorS=='meeting')
+    if(roomType=='meeting')
         container.insertBefore(chat1_1_cc, document.getElementsByClassName('inner')[0]);
-    if(MorS=='seminar')
+    if(roomType=='seminar')
         container.insertBefore(chat1_1_cc, document.getElementsByClassName('view_all')[0]);
     
 }
@@ -180,6 +190,7 @@ function meeting_setAudienceShareView() {
 }
 
 function seminar_setAudienceShareView() {
+    //var view_all = document.createElement('div');
     var view_all = document.getElementsByClassName('view_all')[0];
 
     var div_va = document.createElement('div');
@@ -191,6 +202,7 @@ function seminar_setAudienceShareView() {
     var info_ctxt = document.createElement('div');
     var nicknm = document.createElement("div");
 
+    //view_all.className = 'view_all';
     share_video.id = 'share_video';
     share_video.autoplay = true;
     share_video.playsInline = true;
@@ -217,11 +229,24 @@ function seminar_setAudienceShareView() {
 }
 
 function removePresenterShareView() {
+    //var view_all = document.getElementsByClassName('view_all')[0];
+    //console.log(view_all)
+    //view_all.parentNode.removeChild(view_all);
     var chat1_1_cc = document.getElementsByClassName('chat1_1_cc')[0];
     chat1_1_cc.parentNode.removeChild(chat1_1_cc);   
+    //var view_lbox = document.getElementsByClassName('view_lbox')[0];
+    //view_lbox.parentNode.removeChild(view_lbox);
 }
 
 function removeAudienceShareView() {
+    /*
+    var view_all = document.getElementsByClassName('view_all')[0];
+    view_all.parentNode.removeChild(view_all);
+    
+    var view_lbox = document.getElementsByClassName('view_lbox')[0];
+    view_lbox.parentNode.removeChild(view_lbox);
+    */
+
     var cont = document.getElementsByClassName('cont')[0];
     if(roomType == 'meeting'){ //미팅인 경우
         var view_all = document.getElementsByClassName('view_all')[0];

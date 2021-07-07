@@ -268,8 +268,7 @@ socket.on("share_disconnect", () => {
     responseShareDisconnect();
 });
 
-socket.on("share_possible", (data) => {
-    console.log("MorS:",data.MorS)
-    shareStart(data.MorS);
+socket.on("share_possible", () => {
+    shareStart();
 
 });

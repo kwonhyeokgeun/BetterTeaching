@@ -483,7 +483,7 @@ io.on('connection', function(socket) {
     socket.on("share_question", (data) => {
         if(shareSwitch[users[socket.id]['room_id']]) return;
 
-        io.to(socket.id).emit("share_possible",data);
+        io.to(socket.id).emit("share_possible");
         shareSwitch[users[socket.id]['room_id']] = true;
     });
 });
