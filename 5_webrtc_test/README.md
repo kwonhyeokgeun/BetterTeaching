@@ -1,14 +1,5 @@
-# RiceCakeTable-Web-App-_UXIS
-PNU SWEDU Industry-Academic Cooperation Project
-
----
-
-__절대 `master`에 바로 push하지 말고__, 각자 `branch`를 생성해서 push와 commit을 해주시고, 이후 `pull request`를 통해 충돌이 일어나지 않게 해주시기 바랍니다.
-
-### 예시
-  1. `gihan` 처럼 남들과 차별화된 자신만의 `branch`를 만든다. 
-  2. 모든 사항을 `commit`하고, 자신의 `branch`로 `push`한다.
-  3. 이후 `merge`를 하여 자신의 `branch`와 `master`간에 충돌이 일어나는지 확인한다.
-  4. 충돌하지 않으면 `pull`을 통해 자신의 `branch`에서 작업한 내용을 `master`에 업로드한다.
-
----
+기존의 4_webrtc_test는 화면 공유시에 많은 에러가 존재했다.
+화면공유시 오디오 추가를 체크하지 않으면 ontrack이 한번만 일어나게 되는데 기존에는 두번쩨만 ontrack을 받아들이기 때문에 이 경우 ontrack을 인지하지 못해 에러가 발행했다.   
+이 경우를 해결하기위해 once라는 변수를 넣어 첫 ontrack만 이벤트를 받도록 하였다.   
+그리고 화면공유를 종료했을 때 기존의 화면으로 매끄럽게 넘어오지 못하는 부분을 수정하여 완성도를 높였다.    
+하지만 화면 공유 도중 사용자가 접속하는 경우에 대한 처리가 되어있지 않은 상태라 추가할 예정이다.
