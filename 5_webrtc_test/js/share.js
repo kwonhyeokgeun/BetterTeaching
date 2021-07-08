@@ -1,12 +1,12 @@
 //let ontrackSwitch = false;
 
-/*window.addEventListener("beforeunload", function(e){
+window.addEventListener("beforeunload", function(e){
         browserDisconnect()
-        socket.emit("out")
+        socket.emit("ex")
         return 0;
     
-});   //방장이 나갈시 sendPcs가 삭제되지않는 문제있음
-*/
+}); 
+
 
 function shareRequest() {
     socket.emit('share_question');
@@ -115,6 +115,8 @@ function responseShareDisconnect() {  //공유 받는자의 화면설정
         document.getElementsByClassName('inner')[0].style = "display: block;"; //원래 비디오 보이게
     }
     if(roomType == 'seminar'){
+        var view_all= document.getElementsByClassName('view_all')[0]
+        view_all.removeChild(view_all.childNodes[0]);  //shareview 삭제
         document.getElementsByClassName('presenterVideo')[0].style = "display: block;"; //원래 비디오 보이게
     }
     $('.header .r_hcont .second .h_btn.p_people').removeClass('off').addClass('on');
@@ -214,7 +216,8 @@ function seminar_setAudienceShareView() {
     info_ctxt.className = 'info_ctxt';
     nicknm.className = 'nicknm';
 
-    view_all.appendChild(div_va);
+    //view_all.appendChild(div_va);
+    view_all.insertBefore(div_va,view_all.childNodes[0]);
     div_va.appendChild(share_video);
     view_lbox.appendChild(self_view);
     self_view.appendChild(div_sv);
@@ -225,7 +228,7 @@ function seminar_setAudienceShareView() {
     var container = document.getElementsByClassName('cont')[0];
 
     container.appendChild(view_lbox);
-    container.insertBefore(view_all, document.getElementsByClassName('view_lbox')[0]);
+    //container.insertBefore(view_all, document.getElementsByClassName('view_lbox')[0]);
 }
 
 function removePresenterShareView() {

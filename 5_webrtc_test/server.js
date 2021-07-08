@@ -313,13 +313,16 @@ io.on('connection', function(socket) {
                 for(var key in roomList[roomId]) {
                     closeReceiverPC(key, 'meeting');
                     deleteUser(key, roomId);
+                    closeSenderPCs(key, 'meeting');
                 }
                 delete userStreams['meeting'][socket.id];
                 delete rooms[roomId];
                 delete roomList[roomId];
+                delete numOfUsers[roomId];
             }
         } catch (error) {
             console.error(error);
+            console.log('room_id나 user_name 에러의 경우 신경 안써도 됨~')
         }
         show_state('meeting')
     });
@@ -354,6 +357,7 @@ io.on('connection', function(socket) {
                 delete userStreams['seminar'][socket.id];
                 delete rooms[roomId];
                 delete roomList[roomId];
+                delete numOfUsers[roomId];
             }
         } catch(err) {
             console.error(err);
@@ -464,14 +468,18 @@ io.on('connection', function(socket) {
 
     socket.on("show",function (data){  //확인용
         console.log("===================")
-        console.log("meet sendPCs:",sendPCs['meeting'])
+        console.log(data," sendPCs:",sendPCs[data])
         console.log("share sendPCs:",sendPCs['share'])
-        console.log("meet receivePCs:",receivePCs['meeting'])
+        console.log(data," receivePCs:",receivePCs[data])
         console.log("share receivePCs:",receivePCs['share'])
         console.log("userStreams:",userStreams['share'])
         //console.log("roomList",roomList);
         console.log("users",users)
         console.log("shareSwitch",shareSwitch)
+    });
+
+    socket.on("ex",function (data){  //확인용
+        console.log("!!XXXX!!")
     });
 
     socket.on("leader_socket_id_request", (message) => {
@@ -665,6 +673,7 @@ function meetingJoinRoomHandler(message, socket) {
             user_name: message.userName,
             room_id: message.roomId,
         };
+        console.log('user in:',users)
     } catch (error) {
         console.error(error);
     }
@@ -695,6 +704,7 @@ function seminarJoinRoomHandler(message, socket) {
             user_name: message.userName,
             room_id: message.roomId,
         };
+        console.log('user in:',users)
     } catch (error) {
         console.error(error);
     }
@@ -725,14 +735,23 @@ function closeReceiverPC(socketId, purpose) {
 
 //보내는 peerConnection 종료
 function closeSenderPCs(socketId, purpose) {
+    for(var key in sendPCs[purpose]) {
+        if(sendPCs[purpose][key][socketId] !==undefined){
+            sendPCs[purpose][key][socketId].close()
+            delete sendPCs[purpose][key][socketId]
+        }
+    }
+
+
     if(sendPCs[purpose][socketId]===undefined) return;
 
     for(var key in sendPCs[purpose][socketId]) {
         sendPCs[purpose][socketId][key].close();
         delete sendPCs[purpose][socketId][key];
     }
-
     delete sendPCs[purpose][socketId];
+    
+
 }
 
 function show_state(purpose){
@@ -741,10 +760,11 @@ function show_state(purpose){
     console.log("receivePCs:",receivePCs[purpose])
     
     
+    
     console.log("roomList",roomList);
     console.log("users",users)
     console.log("roomToTime:",roomToTime)
     console.log("roomList:",roomList)
     console.log("rooms:",rooms)
-    
+    console.log('numOfUsers',numOfUsers);
 }

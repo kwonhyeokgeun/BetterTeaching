@@ -47,6 +47,35 @@ let roomTime;   //
 let shareSwitch = false;   //화면 공유 스위치 (방 당 1명 밖에 공유 못함)
 let shareSocketId;
 //----------------------------------------------------------------------------------------
+function show(purpose){
+    console.log('sendPC',sendPC);
+    console.log('receivePCs',receivePCs);
+    console.log('receiveVideos',receiveVideos);
+    console.log('userStreams',userStreams);
+    console.log('selfStream',selfStream);
+
+    socket.emit('show',purpose);
+}
+
+
+
+// F5, ctrl + F5, ctrl + r 새로고침 막기 
+$(document).keydown(function (e) {
+    if (e.which === 116) { 
+        if (typeof e == "object") { 
+            e.keyCode = 0; 
+        } 
+        return false; 
+    } 
+    else if (e.which === 82 && e.ctrlKey) { 
+        return false; 
+    }
+    if ( e.keyCode == 115) { // F4 눌렀을 시
+        // 로그아웃 처리
+        socket.emit("ex")
+     } 
+});
+
 
 window.addEventListener('unload', (ev) => {  
 	browserDisconnect();
