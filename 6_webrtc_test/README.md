@@ -1,12 +1,12 @@
-npm i ejs --save
-npm i node.js --save
-npm i node-pre-gyp --save
-npm i wrtc --save
-npm i socket.io --save
-npm i socket.io-client --save
-npm i express --save
-npm i mysql --save
-npm i formidable --save    
+npm i ejs --save   
+npm i node.js --save    
+npm i node-pre-gyp --save   
+npm i wrtc --save   
+npm i socket.io --save   
+npm i socket.io-client --save   
+npm i express --save   
+npm i mysql --save   
+npm i formidable --save       
     
 미팅에서 비디오 생성시에 6명씩 들어가고 초과할시 오른쪽으로 한 페이지를 더 만들어서 넘겨서 보여줌   
 채팅에 파일 업로드 추가   
