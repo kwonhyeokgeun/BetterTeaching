@@ -21,7 +21,7 @@ npm i formidable --save
 1대1 대화중일 때의 화면   
    
 ![image](https://user-images.githubusercontent.com/49871871/128485003-70848d1d-f8cd-4dc0-8602-47815f8667fe.png)   
-다른사람이 1대1 대화중일 때의 화면   
+다른사람이 1대1 대화중일 때의 화면  비디오 대신 1대1 대화중이라고 표시가 뜸     
 
 
 
