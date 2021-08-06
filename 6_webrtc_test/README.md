@@ -19,6 +19,9 @@ npm i formidable --save
 ![image](https://user-images.githubusercontent.com/49871871/128483214-e6a6511d-0e01-4ec8-9ef6-5981df9f6ca2.png)    
 1대1 대화중일 때의 화면   
    
+![image](https://user-images.githubusercontent.com/49871871/128485003-70848d1d-f8cd-4dc0-8602-47815f8667fe.png)   
+다른사람이 1대1 대화중일 때의 화면   
+
 
 
 카메라 없이 접속가능, 화면공유중 접속시 공유화면 보임 등 대부분의 에러 해결   
