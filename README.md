@@ -61,11 +61,16 @@
  
   20~30명 가까이 접속하여 화상 회의를 하는 시스템에 있어서 Mesh 구조는 각 클라이언트에 걸리는 부하가 심각할 것으로 예상되어 제외하고, 서버가 MCU의 믹싱 처리를 감당할 만한 성능을 가지고 있지 않았기 때문에 SFU 구조를 선택하고 진행했다.
 
-[ Meeting ]   
 
-![image](https://user-images.githubusercontent.com/49871871/124204415-fe2d9e80-db19-11eb-857e-a854c8741e56.png)
+
+![image](https://user-images.githubusercontent.com/49871871/128993402-a3d774c0-fdee-4d75-82e7-3c60a212d78f.png)   
+
 
 그림 4. 로그인 UI
+
+![image](https://user-images.githubusercontent.com/49871871/128993581-e8942177-df2e-43d0-bd5f-da0e98a70c61.png)   
+그림 4.1 방선택 UI
+왼쪽을 선택하는 것을 미팅이라고 하고 오른쪽을 선택하는 것을 세미나라고 하겠다. 둘은 다른 방식으로 영상을 처리하고 보여준다.
     
     
   ![image](https://user-images.githubusercontent.com/49871871/124204432-0685d980-db1a-11eb-8154-4c0969af1023.png)  
