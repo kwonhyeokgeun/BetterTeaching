@@ -152,7 +152,7 @@ user_enter 이벤트를 수신한 접속하고 있었던 다른 유저들은 해
 
 [ 화면 공유 ]   
 사용자가 자신의 디스플레이 화면을 다른 사용자들에게 보여줄 수 있도록 화면 공유 기능을 구현하였다. 디스플레이 화면의 Stream 가져오는 방법은 화상 채팅에서 자신의 Local Stream을 가져오는 방법과 거의 동일하다. Web API의 MediaDevices.getDisplayMedia 함수를 이용하여	audio와 video 스트림을 받아온다. 아래와 같이 스트림을 정상적으로 받아왔을 때 비디오 태그를 이용한 화면 출력, 공유 중지 이벤트 등을 정의할 수 있고 받아오지 못했을 때 오류 출력 등을 정의할 수 있다.	   
-![image](https://user-images.githubusercontent.com/49871871/124204513-2d441000-db1a-11eb-9ec3-9af83ed66f6e.png)   
+![image](https://user-images.githubusercontent.com/49871871/128995898-34d674d0-4d78-4b27-b9ce-a336e941b8af.png)   
 그림 8. 화면 공유   
 
   받아온 Display Stream을 다른 사람들과 공유하기 위해서, 앞의 화상 채팅 기능과 같이 PeerConnection 생성, Offer - Answer 생성, Candidate 교환, Add Track – On Track의 과정을 수행한다. 화면 공유를 원하는 사용자가 화면 공유 버튼을 누르면 같은 방안의 사용자들은 모두 한 사람의 화면을 볼 수 있도록 구현하였다. ShareStart 함수에서 getDisplayMedia로 Display Stream을 받아오고 정상적으로 받아왔을 때, stream addTrack, SenderPeerConnection, SenderOffer를 생성을 수행한다. Share 요청을 받은 다른 사용자들은 RecieverPeerConnection, RecieverPeerOffer를 생성하고, Ontrack 요청을 받으면 받은 stream을 화면에 띄워준다. 그 외에 화면을 공유한 사람의 비디오 위치- 다른 사용자들의 비디오 위치를 지정하는 함수와 화면을 중지하였을 때 공유한 사람의 화면 처리 - 다른 사용자들의 화면을 처리하는 함수 등을 정의하였다. 앞의 화면 공유와 관련된 코드는 share.js에서 작성하였고, 실제 기능을 실행하면 아래와 같다.
