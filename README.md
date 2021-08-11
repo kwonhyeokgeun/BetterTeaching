@@ -180,6 +180,5 @@ user_enter 이벤트를 수신한 접속하고 있었던 다른 유저들은 해
 ![image](https://user-images.githubusercontent.com/49871871/128483214-e6a6511d-0e01-4ec8-9ef6-5981df9f6ca2.png)    
 1대1 대화중일 때의 화면   
    
-![image](https://user-images.githubusercontent.com/49871871/128485003-70848d1d-f8cd-4dc0-8602-47815f8667fe.png)   
-다른사람이 1대1 대화중일 때의 화면  비디오 대신 1대1 대화중이라고 표시가 뜨도록 수정하였다.(기존에는 검정화면에 마우스를 가져다 대야 1대1 대화중이라고 떳었다.)    
+![image](https://user-images.githubusercontent.com/49871871/128485003-70848d1d-f8cd-4dc0-8602-47815f8667fe.png)    
 1대1 대화중에 1대1 대화중인 두 사람중 한명이 방을 나가면 1대1대화가 종료되고 원래대로 돌아 온다.
