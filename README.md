@@ -176,7 +176,7 @@ user_enter 이벤트를 수신한 접속하고 있었던 다른 유저들은 해
 비디오에 마우스를 가져다 대면 1대1 대화를 신청할 수 있는 버튼이 나타난다.
 
 ![image](https://user-images.githubusercontent.com/49871871/128483126-f9e7554a-cf1a-43ac-96f0-b350809ebb49.png)   
-대화신청이 온 경우(김민수가 나에게 1대1 대화를 요청한 경)   
+대화신청이 온 경우(김민수가 나에게 1대1 대화를 요청한 경우 )   
    
 ![image](https://user-images.githubusercontent.com/49871871/128483214-e6a6511d-0e01-4ec8-9ef6-5981df9f6ca2.png)    
 1대1 대화중일 때의 화면   
