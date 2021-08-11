@@ -170,6 +170,16 @@ user_enter 이벤트를 수신한 접속하고 있었던 다른 유저들은 해
 
  
 [ 1:1 대화 ]   
- 다대다 영상인 Meeting 중에도 1:1로 대화가 가능하도록 1:1 대화 기능을 구현 중에 있다. Meeting 화면에서 상대방의 영상에 마우스를 올리면 1:1 대화 버튼을 누를 수 있고, 1:1 대화 버튼을 클릭하고 상대방이 수락하면 1:1 대화가 진행된다. 1:1 대화는 1:1 영상 기능을 구현하는 것으로 사람들끼리 영상을 주고 받는 방법은 Meeting, Seminar에서 1:다, BroadCasting의 기술과 동일하다. 현재까지 서버와 로컬에서 테스트를 진행하여 영상을 잘 주고 받는지 확인하였고, UI에 적용을 수행하여야 한다.   
-	![image](https://user-images.githubusercontent.com/49871871/124204628-65e3e980-db1a-11eb-95f4-598bc622e1da.png)   
-[사진] 로컬에서 진행한 1:1 영상 테스트
+ 가지고 있는 pc가 두대 뿐이라 두대로 실행해 보았다.
+![image](https://user-images.githubusercontent.com/49871871/128483072-58e5d5cb-5b9c-4e1a-9277-4f14df44d783.png)   
+비디오에 마우스를 가져다 대면 1대1 대화를 신청할 수 있는 버튼이 나타난다.
+
+![image](https://user-images.githubusercontent.com/49871871/128483126-f9e7554a-cf1a-43ac-96f0-b350809ebb49.png)   
+대화신청이 온 경우   
+   
+![image](https://user-images.githubusercontent.com/49871871/128483214-e6a6511d-0e01-4ec8-9ef6-5981df9f6ca2.png)    
+1대1 대화중일 때의 화면   
+   
+![image](https://user-images.githubusercontent.com/49871871/128485003-70848d1d-f8cd-4dc0-8602-47815f8667fe.png)   
+다른사람이 1대1 대화중일 때의 화면  비디오 대신 1대1 대화중이라고 표시가 뜨도록 수정하였다.(기존에는 검정화면에 마우스를 가져다 대야 1대1 대화중이라고 떳었다.)    
+1대1 대화중에 1대1 대화중인 두 사람중 한명이 방을 나가면 1대1대화가 종료되고 원래대로 돌아 온다.
