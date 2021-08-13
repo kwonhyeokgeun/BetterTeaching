@@ -6,7 +6,16 @@
    
 ![image](https://user-images.githubusercontent.com/49871871/128482704-8131ab65-aaaf-4b1c-8e4e-8d0f2989ec7f.png)   
    
-![image](https://user-images.githubusercontent.com/49871871/128482897-bd5f6289-db6b-4dd0-94e9-dff6a1c134ad.png)
+![image](https://user-images.githubusercontent.com/49871871/128482897-bd5f6289-db6b-4dd0-94e9-dff6a1c134ad.png)   
 잘 다운된 것을 볼 수 있다.
 
-하지만 아니오를 누르게 되면 녹화된 영상은 다운로드 되지 않고 방을 종료한다.
+하지만 아니오를 누르게 되면 녹화된 영상은 다운로드 되지 않고 방을 종료한다.   
+
+
+    
+    
+    
+    방장의 영상을 10초마다 캡처하여 서버의 captures/이름/id 폴더에 jpg로 저장한다.    
+![image](https://user-images.githubusercontent.com/49871871/129306360-b51ca15e-4bc3-4252-ba5f-40b2f6dde8c8.png)   
+해당 디렉토리에 캡처가 잘 저장된 것을 볼 수 있다. 지금은 임시로 방장의 영상만 캡처하도록 했지만 학생들의 영상도 캡처하도록 하여 캡처  이용해 머신러닝으로 학생들의 학습도를 측정하는데 사용할 예정이다. 
+    
