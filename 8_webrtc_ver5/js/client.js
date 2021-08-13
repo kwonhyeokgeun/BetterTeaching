@@ -90,7 +90,7 @@ window.addEventListener('unload', (ev) => {
 
 let is_record=false;
 function browserDisconnect() {
-    if(roomType === 'meeting'){
+    if(roomType == 'meeting'){
         if(Object.keys(mediaRecorder).length<1) is_record=true;
         if(is_record)document.getElementById('disconnect').setAttribute('href',"https://localhost/");
         if(roomType === 'meeting' && socketId === roomLeader && !is_record){  //미팅에서 방장이 나가면 저장여부 물어봄
@@ -103,7 +103,6 @@ function browserDisconnect() {
                 }
                 alert('저장된 녹화영상을 다운로드 받으세요.')
                 return;
-                
             }
             else{
                 document.getElementById('disconnect').setAttribute('href',"https://localhost/");//false이면 나가게

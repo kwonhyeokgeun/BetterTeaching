@@ -695,6 +695,34 @@ io.on('connection', function(socket) {
         })
     })
 
+    //SaveCapture
+    var file_index = []
+    socket.on('saveCapture',function(data) {
+       //console.log("Server Received Capture Image : "+data);
+       
+       let today = new Date();
+       let hour = today.getHours();
+       let minute = today.getMinutes();
+       let second = today.getSeconds();
+       let captureTime = hour+"h"+minute+"m"+second+"s";
+       let room_directory = "./captures/"+data.room;
+       let user_directory = "./captures/"+data.room+'/'+socket.id;
+
+       if(!fs.existsSync(room_directory)) fs.mkdirSync(room_directory);
+       if(!fs.existsSync(user_directory)) {
+           file_index[socket.id] = 0;
+           fs.mkdirSync(user_directory);
+       }
+       
+       let filename = user_directory+'/'+file_index[socket.id]+'.jpg';
+       file_index[socket.id] = file_index[socket.id]+1  //file_index삭제코드 넣을것
+
+       let url = data.url.replace('data:image/jpeg;base64,','');
+       fs.writeFile(filename,url,'base64',function(error) {
+           console.log(error,'ㅁㄴㅇㄹ');
+       });
+   });
+
 
 });
 
