@@ -17,7 +17,7 @@
     
 ==============================================================================       
 캡처 관련 함수를 capture.js에 정리하였다. meeting.js에서 비디오를 생성하고 captureStart()를 한다.   
-방식은 canvas에 영상의 캡처를 그려서 서버로 그린것의 url을 보내 서버에서 저장하는 방식이다.   
+비디오를 캡처하기 위해서 Canvas를 사용하였다. Canvas란 다양한 그림을 그릴 수 있는 공간을 제공한다. 학생들의 화면 Stream을 가지고 있는 Video요소를 Canvas의 Context에 그림을 그린 후 그린 그림을 URL로 변환하면 비디오를 캡처한 이미지 URL을 얻을 수 있다. Client에서 getContext, drawImage, toDataURL 함수들로 비디오로부터 캡처 이미지를 구하고, socket.emit을 통해 Server로 Room ID, User Name, Time, URL을 넘겨준다. Server에서는 Client로부터 전달받으면 해당 경로에 사진을 저장한다.
 방장의 영상을 10초마다 캡처하여 서버의 captures/이름/id 폴더에 jpg로 저장한다.    
 ![image](https://user-images.githubusercontent.com/49871871/129306360-b51ca15e-4bc3-4252-ba5f-40b2f6dde8c8.png)   
 해당 디렉토리에 캡처가 잘 저장된 것을 볼 수 있다.    
