@@ -190,6 +190,6 @@ MediaRecorder를 사용하여 client상에서 녹화를 하도록 하였다. 캠
 ![image](https://user-images.githubusercontent.com/49871871/129307324-f2b45137-3b62-4bd6-995c-92fe1eff2ec3.png)   
 ![image](https://user-images.githubusercontent.com/49871871/129307338-4ce7c22a-ee66-4ed4-9189-fba41ea6daf3.png)   
 ![image](https://user-images.githubusercontent.com/49871871/129307355-28ab7ff0-6d4c-456c-afa0-6b927b8dc6c0.png)   
-
+비디오가 사용자의 명을 가지고 잘 저장되는 것을 볼 수있다.   
 
 
