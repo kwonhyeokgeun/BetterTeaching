@@ -1,19 +1,25 @@
+   
    실행방법   
    -server.js 파일이 있는 위치에 uploads라는 폴더를 추가해준다.   
    -ejs, epress, mysql, node-pre-gyp, node.js, socket.io, socket.io-client, wrtc, formidable 모듈을 npm 명령어로 install한다.(이미 있는경우 node_modules, package-lock.json, package.json을 삭제하고 설치한다.)   
-   -node server.js (또는 mediaServer.js) 명령어를 입력하면 서버가 실행된다. https://localhost에 접속하면 된다.
+   -node server.js (또는 mediaServer.js) 명령어를 입력하면 서버가 실행된다. https://localhost에 접속하면 된다.   
+
+실행방법   
+-server.js 파일이 있는 위치에 uploads라는 폴더를 추가해준다.   
+-ejs, epress, mysql, node-pre-gyp, node.js, socket.io, socket.io-client, wrtc, formidable 모듈을 npm 명령어로 install한다.(이미 있는경우 node_modules, package-lock.json, package.json을 삭제하고 설치한다.)   
+-node server.js (또는 mediaServer.js) 명령어를 입력하면 서버가 실행된다. https://localhost에 접속하면 된다.
 
    
    
 ============================================================================   
-   00_beta_webrtc_test : 간단하게 만들어본 화상채팅   
-   0_webrtc_UI : 새로운 UI를 갖고있다.   
-   1_webrtc_test, 2_webrtc_test, 3_webrtc_test : 영상교육시스템을 만들기위한 연습용 코드   
-   4_webrtc_ver1 : 제일 처음만든 영상교육시스템, 에러가 많다.   
-   5_webrtc_ver2 : 대부분의 에러를 없앴다. 완성도를 높였다.   
-   6_webrtc_ver3 : 사용자간 1대1 대화기능 추가, 6명씩 비디오가 보이도록 수정   
-   7_webrtc_ver4 : 1대1 대화기능의 완성도를 높임, dashboard 기능 추가   
-   8_webrtc_ver5 : 녹화기능 추가, 10초마다 영상 캡처 저장 기능 추가   
+00_beta_webrtc_test : 간단하게 만들어본 화상채팅   
+0_webrtc_UI : 새로운 UI를 갖고있다.   
+1_webrtc_test, 2_webrtc_test, 3_webrtc_test : 영상교육시스템을 만들기위한 연습용 코드   
+4_webrtc_ver1 : 제일 처음만든 영상교육시스템, 에러가 많다.   
+5_webrtc_ver2 : 대부분의 에러를 없앴다. 완성도를 높였다.   
+6_webrtc_ver3 : 사용자간 1대1 대화기능 추가, 6명씩 비디오가 보이도록 수정   
+7_webrtc_ver4 : 1대1 대화기능의 완성도를 높임, dashboard 기능 추가   
+8_webrtc_ver5 : 녹화기능 추가, 10초마다 영상 캡처 저장 기능 추가   
 
 ============================================================================   
    
