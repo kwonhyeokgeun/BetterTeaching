@@ -7,6 +7,7 @@
  방장이 나가기 버튼을 누르면 녹화를 중지하고 저장할 지 묻는 화면이다.   
     
 ![image](https://user-images.githubusercontent.com/49871871/128482704-8131ab65-aaaf-4b1c-8e4e-8d0f2989ec7f.png)   
+저장할지 여부를 물을 때 '확인'을 눌렀을 때 다운받을 수 있도록 창이 뜬다.   
    
 ![image](https://user-images.githubusercontent.com/49871871/128482897-bd5f6289-db6b-4dd0-94e9-dff6a1c134ad.png)   
 잘 다운된 것을 볼 수 있다.
