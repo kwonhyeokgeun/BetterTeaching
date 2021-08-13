@@ -1,6 +1,7 @@
 실행방법   
 -server.js 파일이 있는 위치에 uploads라는 폴더를 추가해준다.   
 -ejs, epress, mysql, node-pre-gyp, node.js, socket.io, socket.io-client, wrtc, formidable 모듈을 npm 명령어로 install한다.(이미 있는경우 node_modules, package-lock.json, package.json을 삭제하고 설치한다.)   
+-uploads 폴더, captures 폴더가 빈 폴더라 github에 업로드가 안됐는데 js폴더 옆에 uploads, captures 폴더를 생성해주고 실행해야한다.
 -node server.js (또는 mediaServer.js) 명령어를 입력하면 서버가 실행된다. https://localhost에 접속하면 된다.
 
    
