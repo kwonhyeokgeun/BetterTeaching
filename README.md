@@ -156,17 +156,6 @@ user_enter 이벤트를 수신한 접속하고 있었던 다른 유저들은 해
 그림 8. 화면 공유   
 
   받아온 Display Stream을 다른 사람들과 공유하기 위해서, 앞의 화상 채팅 기능과 같이 PeerConnection 생성, Offer - Answer 생성, Candidate 교환, Add Track – On Track의 과정을 수행한다. 화면 공유를 원하는 사용자가 화면 공유 버튼을 누르면 같은 방안의 사용자들은 모두 한 사람의 화면을 볼 수 있도록 구현하였다. ShareStart 함수에서 getDisplayMedia로 Display Stream을 받아오고 정상적으로 받아왔을 때, stream addTrack, SenderPeerConnection, SenderOffer를 생성을 수행한다. Share 요청을 받은 다른 사용자들은 RecieverPeerConnection, RecieverPeerOffer를 생성하고, Ontrack 요청을 받으면 받은 stream을 화면에 띄워준다. 그 외에 화면을 공유한 사람의 비디오 위치- 다른 사용자들의 비디오 위치를 지정하는 함수와 화면을 중지하였을 때 공유한 사람의 화면 처리 - 다른 사용자들의 화면을 처리하는 함수 등을 정의하였다. 앞의 화면 공유와 관련된 코드는 share.js에서 작성하였고, 실제 기능을 실행하면 아래와 같다.
-	
-[ 이미지 캡처 ]   
-방과 후 수업을 맞춰진 화상 강의 프로그램과 머신 러닝을 이용한 수업 흥미도 측정 구현을 목	표로 하고 있다. 화상 강의를 기반으로 학생들의 화면을 통해 수업 흥미도를 알아내고자 하고, 	학생들의 화면 데이터는 수업 중의 학생들의 화상 비디오를 캡처한 이미지 형태로 구성할 필요가 있다. 화상 강의가 만들어진 시점으로부터 강의를 듣는 모든 사람들의 비디오를 일정 시간 마다 캡처하도록 한다. (일정 시간은 초단위로 하여 머신 러닝 팀의 이미지를 가져가는 속도를 감안하여 결정할 예정이다) 비디오를 캡처하기 위해서 Canvas를 사용하였다. Canvas란 다양한 그림을 그릴 수 있는 공간을 제공한다. 학생들의 화면 Stream을 가지고 있는 Video요소를 Canvas의 Context에 그림을 그린 후 그린 그림을 URL로 변환하면 비디오를 캡처한 이미지 URL을 얻을 수 있다. Client에서 getContext, drawImage, toDataURL 함수들로 비디오로부터 캡처 이미지를 구하고, socket.emit을 통해 Server로 Room ID, User Name, Time, URL을 넘겨준다. Server에서는 Client로부터 전달받으면 해당 경로에 사진을 저장한다. 앞의 작업을 아래와 같이 함수로 만들고 setInterval로 지정하여 일정 시간마다 반복적으로 수행할 수 있도록 하였다.
-	
-  ![image](https://user-images.githubusercontent.com/49871871/124204524-33d28780-db1a-11eb-975a-c3bb463bd1ab.png)   
-	[사진] 학생들의 화면 이미지 캡처 코드
-
-모든 사용자들의 화면 이미지를 초마다 캡처하기 때문에 구분하기 쉽도록 Capture 파일안에 Room별 디렉토리를 생성하고 파일명은 같은 시간 때의 사람들의 화면이 중요함을 고려하여 ‘이름_시간_분_초.jpg’ 로 정하였다.
-   
-![image](https://user-images.githubusercontent.com/49871871/124204572-4947b180-db1a-11eb-822e-6be50c772a06.png)   
-[사진] Capture안 Room별 디렉토리와 그 안에 저장된 파일명
 
  
 [ 1:1 대화 ]   
@@ -182,4 +171,25 @@ user_enter 이벤트를 수신한 접속하고 있었던 다른 유저들은 해
 1대1 대화중일 때의 화면(나의 화면이 오른쪽 상단에 작게 나오고 상대방의 화면이 크게 나타난다.)   
    
 ![image](https://user-images.githubusercontent.com/49871871/128485003-70848d1d-f8cd-4dc0-8602-47815f8667fe.png)    
-1대1 대화중에 1대1 대화중인 두 사람중 한명이 방을 나가면 1대1대화가 종료되고 원래대로 돌아 온다.
+1대1 대화중에 1대1 대화중인 두 사람중 한명이 방을 나가면 1대1대화가 종료되고 원래대로 돌아 온다.   
+   
+	
+[ 이미지 캡처 ]   
+방과 후 수업을 맞춰진 화상 강의 프로그램과 머신 러닝을 이용한 수업 흥미도 측정 구현을 목표로 하고 있다. 화상 강의를 기반으로 학생들의 화면을 통해 수업 흥미도를 알아내고자 하고, 	학생들의 화면 데이터는 수업 중의 학생들의 화상 비디오를 캡처한 이미지 형태로 구성할 필요가 있다. 화상 강의가 만들어진 시점으로부터 강의를 듣는 모든 사람들의 비디오를 일정 시간 마다 캡처하도록 한다. (일정 시간은 초단위로 하여 머신 러닝 팀의 이미지를 가져가는 속도를 감안하여 결정할 예정이다) 비디오를 캡처하기 위해서 Canvas를 사용하였다. Canvas란 다양한 그림을 그릴 수 있는 공간을 제공한다. 학생들의 화면 Stream을 가지고 있는 Video요소를 Canvas의 Context에 그림을 그린 후 그린 그림을 URL로 변환하면 비디오를 캡처한 이미지 URL을 얻을 수 있다. Client에서 getContext, drawImage, toDataURL 함수들로 비디오로부터 캡처 이미지를 구하고, socket.emit을 통해 Server로 Room ID, User Name, Time, URL을 넘겨준다. Server에서는 Client로부터 전달받으면 해당 경로에 사진을 저장한다. 앞의 작업을 아래와 같이 함수로 만들고 setInterval로 지정하여 일정 시간마다 반복적으로 수행할 수 있도록 하였다.
+	
+  ![image](https://user-images.githubusercontent.com/49871871/124204524-33d28780-db1a-11eb-975a-c3bb463bd1ab.png)   
+	[사진] 학생들의 화면 이미지 캡처 코드
+
+모든 사용자들의 화면 이미지를 초마다 캡처하기 때문에 구분하기 쉽도록 Capture 파일안에 Room별 디렉토리를 생성하고 파일명은 같은 시간 때의 사람들의 화면이 중요함을 고려하여 ‘이름_시간_분_초.jpg’ 로 정하였다.
+   
+![image](https://user-images.githubusercontent.com/49871871/124204572-4947b180-db1a-11eb-822e-6be50c772a06.png)   
+[사진] Capture안 Room별 디렉토리와 그 안에 저장된 파일명   
+   
+[ 영상 녹화]   
+MediaRecorder를 사용하여 client상에서 녹화를 하도록 하였다. 캠이 있는 사용자가 방에 접속하는 순간부터 영상녹화는 시작된다. 그러다 사용자가 종료를 하게 되면 해당 영상이 방장의 client상에서 recoredChunks에 저장이 된다. 그러다 방장이 방을 종료하려고 하면 저장된 영상을 종료하겠냐고 창이 뜬다. 아니오라고 하면 방이 종료되지만 네라고 하면 아직 종료하지 않은 사용자들의 녹화를 중지하고 영상을 저장한다. 그리고 방장의 client상에서 영상들을 다운로드 받을 수 있도록 창이 뜬다. 해당 창에는 녹화돼있는 모든 영상이 들어있다. 방장은 영상을 다운로드하고 사용을 종료할 수 있다.   
+![image](https://user-images.githubusercontent.com/49871871/129307324-f2b45137-3b62-4bd6-995c-92fe1eff2ec3.png)   
+![image](https://user-images.githubusercontent.com/49871871/129307338-4ce7c22a-ee66-4ed4-9189-fba41ea6daf3.png)   
+![image](https://user-images.githubusercontent.com/49871871/129307355-28ab7ff0-6d4c-456c-afa0-6b927b8dc6c0.png)   
+
+
+
