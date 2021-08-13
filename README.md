@@ -9,7 +9,7 @@
 00_beta_webrtc_test : 간단하게 만들어본 화상채팅   
 0_webrtc_UI : 새로운 UI를 갖고있다.   
 1_webrtc_test, 2_webrtc_test, 3_webrtc_test : 영상교육시스템을 만들기위한 연습용 코드   
-4_webrtc_ver1 : 제일 처음만든 영상교육시스템, 에러가 많다.   
+4_webrtc_ver1 : 제일 처음만든 영상교육시스템, meeting, seminar, chat, 화면공유 기능이 있다. 에러가 많아 좋지 못함.   
 5_webrtc_ver2 : 대부분의 에러를 없앴다. 완성도를 높였다.   
 6_webrtc_ver3 : 사용자간 1대1 대화기능 추가, 6명씩 비디오가 보이도록 수정   
 7_webrtc_ver4 : 1대1 대화기능의 완성도를 높임, dashboard 기능 추가   
