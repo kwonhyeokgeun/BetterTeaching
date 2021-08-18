@@ -1,6 +1,6 @@
 const socket = io('https://localhost', {secure: true});
 
-const pc_config = {
+const pc_config = {   
     iceServers: [
         {
             urls: "stun:edu.uxis.co.kr"
