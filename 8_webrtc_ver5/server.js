@@ -11,7 +11,7 @@ const formidable = require('formidable')
 const connection = mysql.createConnection({
     host    : 'localhost',
     user    : 'root',
-    password: '254425',
+    password: 'Uxis100!',
     database: 'better_teaching'
 });
 
@@ -61,7 +61,7 @@ let shareUserId={};   //해당 room의 화면공유자의 id를 가짐
 
 let oneoneUserId = {}
 
-fs.readdir(__dirname+"/uploads", function(error, filelist){ //서버 켜지면 upload 파일 삭제
+fs.readdir(__dirname+"/uploads", function(error, filelist){ //서버 켜지면 uploads 안 파일 삭제
     try {
         for(var i=0; i<filelist.length; i++){
             delete_directory(__dirname+'/uploads/'+filelist[i]);
@@ -383,7 +383,8 @@ io.on('connection', function(socket) {
 
 
     //통신 종료
-    socket.on("meeting_disconnect", () => {
+    socket.on("meeting_disconnect", (data) => {
+        try{socket.leave(data.roomId);}catch(e){console.error(e);}
         try {
             console.log('meeting disconnect');
             
@@ -431,7 +432,8 @@ io.on('connection', function(socket) {
         show_state('meeting')
     });
 
-    socket.on('seminar_disconnect', () => {
+    socket.on('seminar_disconnect', (data) => {
+        try{socket.leave(data.roomId);}catch(e){console.error(e);}
         try {
             console.log('seminar disconnect');
         

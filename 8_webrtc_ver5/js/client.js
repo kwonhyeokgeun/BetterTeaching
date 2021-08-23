@@ -1,6 +1,6 @@
 const socket = io('https://localhost', {secure: true});
 
-const pc_config = {   
+const pc_config = {
     iceServers: [
         {
             urls: "stun:edu.uxis.co.kr"
@@ -122,7 +122,7 @@ function browserDisconnect() {
             });
         }
     }catch{console.log('seminar out')};
-    socket.emit(`${roomType}_disconnect`);
+    socket.emit(`${roomType}_disconnect`,{roomId:roomId});
         
 }
 
@@ -200,6 +200,7 @@ function createReceiverPeerConnection(senderSocketId, userName, purpose, ontrack
     pc.ontrack = (e) => {
         if(once == 1){
             ontrackHandler(e.streams[0], userName, senderSocketId);
+            console.log(e.streams[0]);
         }
         once+=1;
     }
