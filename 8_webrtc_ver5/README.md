@@ -38,6 +38,7 @@ prometheus와 grafana를 이용하여 리눅스 서버의 cpu, network, ram, dis
    
 ![image](https://user-images.githubusercontent.com/49871871/130418400-730bf1c3-9b05-4e74-8ac0-960a73c682ca.png)    
 밑으로 스크롤을 내려보면 다양한 정보들을 나타내 준다.   
+(참고영상 : https://www.youtube.com/watch?v=4WWW2ZLEg74)      
 
 
 
