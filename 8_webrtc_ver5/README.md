@@ -29,7 +29,7 @@ captures라는 폴더가 없다면 에러가 나므로 주의해야한다.
 ==============================================================================       
  서버가 stream을 주고받는 역할을 하기 때문에 사용자 수가 많아 짐에 따라 서버에 부하가 크게 올 수 있다. 실제로 실험을 해봤을 때 coturn서버의 성능이 좋지 못한 탓에 10명 정도가 접속을 하면 거의 서버가 멈춰버리는 상황이 발생했다. 그래서 서버의 부하정도를 실시간으로 확인할 수 있도록 새로운 대쉬보드를 만들었다.      
 prometheus와 grafana를 이용하여 리눅스 서버의 cpu, network, ram, disk등 의 서버의 상황을 알 수 있도록 하였다. 코드는 첨부하지 않았다.   
-![제목 없음](https://user-images.githubusercontent.com/49871871/130419511-0aad8e95-04f6-40c8-86f9-167504aeed4f.png)   
+![제목 없음](https://user-images.githubusercontent.com/49871871/130419803-3ef9c248-8d72-48cb-8e22-01617cb091af.png)   
 아무도 접속하지 않았을 때의 서버의 상태이다.   
    
 ![cpu_dashboard2](https://user-images.githubusercontent.com/49871871/130418206-3c7acd12-ed25-47c0-af85-5caa36b2ebcc.PNG)   
