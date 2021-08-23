@@ -34,7 +34,7 @@ prometheus와 grafana를 이용하여 리눅스 서버의 cpu, network, ram, dis
    
 ![cpu_dashboard2](https://user-images.githubusercontent.com/49871871/130418206-3c7acd12-ed25-47c0-af85-5caa36b2ebcc.PNG)   
 7명이 접속하였을 때의 서버의 상태이다.   
-시간을 기준으로 변화하는 그래프를 나타내 준다.    
+시간을 기준으로 변화하는 그래프와 함께 를 나타내 준다.    
    
 ![image](https://user-images.githubusercontent.com/49871871/130418400-730bf1c3-9b05-4e74-8ac0-960a73c682ca.png)    
 밑으로 스크롤을 내려보면 다양한 정보들을 나타내 준다.   
