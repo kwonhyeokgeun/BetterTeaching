@@ -150,6 +150,12 @@ user_enter 이벤트를 수신한 접속하고 있었던 다른 유저들은 해
 ![image](https://user-images.githubusercontent.com/49871871/128994949-3bfa123b-f262-4909-9ff9-03243f5e3fe9.png)   
 
    
+파일 업로드   
+![image](https://user-images.githubusercontent.com/49871871/131243940-5a1e636d-8db0-4a6c-a574-540ef22ba830.png)   
+채팅에 입력버튼 아래에 첨부 버튼을 누르면 파일을 선택하여 업로드 할 수 있다. 
+   
+![image](https://user-images.githubusercontent.com/49871871/131243969-4698bee5-ed02-448d-938b-6a515139b501.png)   
+채팅창에 올라온 파일을 클릭을하면 이렇게 다운로드 받을 수 있다.
 
 [ 화면 공유 ]   
 사용자가 자신의 디스플레이 화면을 다른 사용자들에게 보여줄 수 있도록 화면 공유 기능을 구현하였다. 디스플레이 화면의 Stream 가져오는 방법은 화상 채팅에서 자신의 Local Stream을 가져오는 방법과 거의 동일하다. Web API의 MediaDevices.getDisplayMedia 함수를 이용하여	audio와 video 스트림을 받아온다. 아래와 같이 스트림을 정상적으로 받아왔을 때 비디오 태그를 이용한 화면 출력, 공유 중지 이벤트 등을 정의할 수 있고 받아오지 못했을 때 오류 출력 등을 정의할 수 있다.	   
