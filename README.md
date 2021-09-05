@@ -16,6 +16,7 @@
 7_webrtc_ver4 : 1대1 대화기능의 완성도를 높임, dashboard 기능 추가   
 8_webrtc_ver5 : 녹화기능 추가, 10초마다 영상 캡처 저장 기능 추가   
 
+https://khg-project.tistory.com/category/%ED%99%94%EC%83%81%EA%B5%90%EC%9C%A1%EC%8B%9C%EC%8A%A4%ED%85%9C  => 개발 과정을 담은 블로그   
 ============================================================================   
    
 [ webRTC API ]
