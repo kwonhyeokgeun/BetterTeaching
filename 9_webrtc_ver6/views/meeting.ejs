@@ -1,0 +1,254 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="Generator" content="EditPlus®" />
+        <meta name="Author" content="" />
+        <meta name="Keywords" content="" />
+        <meta name="Description" content="" />
+        <title>BETTER TEACHING</title>
+        <!--css-->
+        <link rel="stylesheet" href="../css/reset.css" />
+        <link rel="stylesheet" href="../css/font.css" />
+        <link rel="stylesheet" href="../css/layout.css?0820" />
+        <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css" />
+		<link rel="stylesheet" href="../css/slick.css" />
+        <!--js-->
+		<script src="/socket.io/socket.io.js"></script>
+        <script src="../js/jquery-3.4.1.min.js"></script>
+		<script src="../js/slick.min.js"></script>
+        <script src="../js/jquery.mCustomScrollbar.js"></script>
+        <script src="../js/layout.js"></script>
+		<script>
+			
+		</script>
+    </head>
+    <body>
+		<p id='room_id' style="display: none;"><%= roomId %></p>
+		<p id='user_name' style="display: none;"><%= userName %></p>
+		<p id='room_type' style="display: none;"><%= roomType %></p>
+
+        <div class="wrap view">
+			<!--header : s -->
+			<div class="header">
+				<div class="flo_left l_hcont">
+					<img src="img/menu_icon_w.png" alt="메뉴" class="menuicon"/>
+					<img src="img/h_logo.png" alt="logo" class="h_logo">
+					<h1 class="now_clock"></h1>
+				</div>				
+				<div class="flo_right r_hcont">
+					<div class="d_ib first">
+						<p class="people">현재 참여인원</p>
+						<p class="people_nm"><span><img src="img/people_nm.png" alt="인원수"/></span><span id='num_user_span'></span></p>
+					</div>
+					
+					<div class="d_ib second">
+						<div>
+							<a type="button" onclick="shareRequest()" class="h_btn share off" data-tooltip="화면공유"></a>
+							<a type="button" onclick = "show('meeting')" class="h_btn p_people on" data-tooltip="참여자"></a>
+							<a type="button" class="h_btn chat off" data-tooltip="채팅"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--header : e -->
+
+			<!-- chatbox : s -->
+			<div class="list chatbox">
+				<div class="top mCustomScrollbar">
+					<ul id="chat_inners">
+						<!--
+						<li>
+							<h1>참여자 1</h1>
+							<p>선생님~~ 방금 말씀하시거나 나중에 혹시 재방도 가능하실까요?? 오늘 수업 너무 좋은거 같아서 다시 한번 듣고 싶어서 그래요~~</p>
+						</li>
+						<li>
+							<h1>참여자 2</h1>
+							<p>고마워요~~하지만 오늘 중요한 수업인 만큼 집중해서 잘 들으시고, 재방은 어렵습니다.</p>
+						</li>
+						-->
+					</ul>
+				</div>
+				<!--file download-->
+				<form name='fileform' action="/download" method="post" target="if">
+					<input type="hidden" name="filename"/>
+				</form>
+				
+				<div class="bottom">
+					<textarea id ="msg_box" onkeyup="enterkey()" placeholder="메세지를 입력하세요" maxlength="100"></textarea>
+					<div class="btn_file">
+						<!--file upload-->
+<!--
+						<a id="btn_send" class="btn" input type="button" onclick="send_msg(); send_file();" style="cursor:pointer">입력</a>
+						<form id="btn_file" action="/send-file" method="post" target="if" enctype="multipart/form-data">
+							<input type="hidden" name="file_roomid">
+							<input type="file" name="uploadFile" style ='display:none' onchange="show_file(this);" multiple="multiple">
+							<img src="img/icon_file.png" onclick="select_file();" style="cursor:pointer">
+							<input type="submit" name="btn_submit" style="display:none">
+						</form>
+						<iframe name="if" style="display:none"></iframe>
+						-->
+						<a id="btn_send" class="btn" input type="button" onclick="send_msg();" style="cursor:pointer">입력</a>
+					</div>
+				</div>
+			</div>
+			<!-- chatbox : e -->
+
+			<div class="cont n_add">
+				<div class="inner">
+					<div class="slide_wrap">
+						<div class="slide_box ty01">
+							<!-- User Space -->
+
+						</div>						
+					</div>
+				</div>
+
+				<div class="conversation" style="display: none;">
+					<div class="view_all">
+						<div>
+							<video id="target_video" autoplay=true playsinline=true></video>
+						</div>
+					</div>
+					
+					<div class="chat1_1_cc">
+						<p>지금은</p>
+						<p>1 : 1 대화 중</p>
+						<p>입니다</p>
+						<a onclick="end_1_1();">종료하기</a> <!--1개 띄우고 3개 없애기-->
+						<!--a onclick="mute_1_1();" id="mute" >소리켜기</a-->
+					</div>
+
+					<div class="view_lbox">
+						<div class="self_view">
+							<div>
+								<video id="my_video" autoplay="true" playsinline="true"></video>
+							</div>
+						</div>
+					</div>
+					<a class="mute_div" onclick="totAudioMute()"></a>
+					<a class="cam_div" onclick="totVideoMute()"></a>
+					
+				</div>
+				<div class="capture"></div>
+				<div class="footer f_pd_b">
+					<!--<p>Copyright(c) By UXIS all rights reserved</p>-->
+				</div>		
+			</div>		
+
+			<!--footer : s -->
+				
+		</div>
+
+		<!--menu open : s-->
+			<div class="menu">
+				<div class="inner">
+					<div class="menubox">
+						<div class="cancel">
+							<img src="img/menu_cancel.png" alt="닫기버튼" class="cancelicon"/>
+						</div>
+						<h1>함께하는 BETTER TEACHING</h1>
+						<div class="set_wrap">
+							<ul>
+								<li>개설자<span class="c_y"></span></li>
+								<li>현재 참여인원<span class="c_r"></span></li>
+								<li>방 번호<span class="c_r"></span></li>
+							</ul>
+							<ul class="setting_w">
+								<li>
+									<div class="info">
+										<h3>카메라</h3>
+										<!-- <p><span>check</span></p> -->
+									</div>
+									<select name="camera" id="videoinput" onchange="changeDevice();">
+										<option value="type01">720p HD Camera (2b7e:500)</option>
+										<option value="type02">1080p HD Camera (2b7e:500)</option>
+									</select>
+								</li>
+								<li>
+									<div class="info">
+										<h3>화질</h3>
+									</div>
+									<select name="pixel" id="videoQuality" onchange="changeDevice();">
+										<option value="320x240">QVGA(320x240)</option>
+										<option value="640x480">VGA(640x480)</option>
+										<option value="1280x720">HD(1280x720)</option>
+									</select>
+								</li>
+								<li>
+									<div class="info">
+										<h3>마이크</h3>
+									</div>
+									<select name="mic" id="audioinput" onchange="changeDevice();">
+										<option value="type01">마이크 배열 (디지털 마이크용 인....</option>
+										<option value="type02">마이크 배열2 (디지털 마이크용 인....</option>
+									</select>
+									<div class="volume_mic">
+										<div class="mic_icon"><img src="img/mic_icon.png" alt="mic_icon"></div>
+										<input type="range" id="micVolume" min="0" max="1" value="1" step="0.01" onchange="changeDevice();" oninput="rangevalue.value=value">
+									</div>
+								</li>
+								<li>
+									<div class="info">
+										<h3>소리</h3>
+									</div>
+									<select name="sound" id="audiooutput" onchange="attachSinkId();">
+										<option value="type01">기본값 - 스피커 (USB PnP Audio...</option>
+										<option value="type02">기본값 - 이어폰 (USB PnP Audio...</option>
+									</select>
+								</li>
+							</ul>
+						</div>
+						<div class="cc_btn" style="margin-bottom: 7px;">
+							<a id="disconnect" onclick="browserDisconnect()" href="/exit"><span></span>나가기</a>
+						
+						</div>
+						<div class="cc_btn">
+							<a id="share" onclick="shareRequest()"><span></span>화면 공유</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--menu open : e-->
+
+			<div class="chat_accept" style="display: none;">
+				<div class="inner">
+					<div class="ca_box">						
+						<p><span class="c_y"></span>님이</p>
+						<p>1 : 1 대화를 신청하셨습니다</p>						
+						<div class="ca_btn">
+							<!--#11-->
+							<!-- <a href="view_share.html" class="accept"><span></span>수락하기</a> -->
+							<a class="accept" onclick="accept_1_1()"><span></span>수락하기</a>
+							<a class="refusal" onclick="refusal_1_1();"><span></span>거절하기</a>
+							<!--#11-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="chat_accept" style="display: none;">
+				<div class="inner">
+					<div class="ca_box">						
+						<p><span class="c_y"></span>님이</p>
+						<p>1 : 1 대화를 거절하셨습니다</p>
+						<div class="ca_btn">
+							<a class="accept" onclick="okay_1_1();"><span></span>확인</a> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--#11-->
+    </body>
+	<script src="../js/share.js"></script>
+	<script src="../js/oneToOne.js"></script>
+	<script src="../js/recordScreen.js"></script>
+	<script src="../js/message.js"></script>
+	<script src="../js/meeting.js"></script>
+	<script src="../js/client.js"></script>
+	<script src="../js/sendFile.js"></script>
+	<script src="../js/record.js"></script>
+	<script src="../js/capture.js"></script>
+</html>

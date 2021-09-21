@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cjs": "^0.0.11",
+    "console-stamp": "^3.0.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "formidable": "^1.2.2",
+    "internal": "^2.0.27",
+    "mysql": "^2.18.1",
+    "node-pre-gyp": "^0.17.0",
+    "node.js": "^0.0.1-security",
+    "shelljs": "^0.8.4",
+    "socket.io": "^4.2.0",
+    "socket.io-client": "^4.2.0",
+    "wrtc": "^0.4.7"
+  }
+}
