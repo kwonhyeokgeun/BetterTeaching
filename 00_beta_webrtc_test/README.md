@@ -11,3 +11,5 @@ npm i socket.io --save
 npm i socket.io-client --save   
 npm i express --save   
 npm i mysql --save
+
+![image](https://user-images.githubusercontent.com/49871871/135216680-4d3b7669-6756-4a96-9322-e388ffcd4e61.png)
